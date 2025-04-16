@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Client;
+use App\Models\Importateur;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,7 @@ class ClientFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'email' => $this->faker->email,
             'address' => $this->faker->address,
+            'importateur_id' => Importateur::factory(),  // Associates a random Importateur
         ];
     }
 }

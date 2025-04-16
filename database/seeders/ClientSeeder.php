@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Client;
 
-class ImportateursSeeder extends Seeder
+class ClientSeeder extends Seeder
 {
     public function run(): void
     {

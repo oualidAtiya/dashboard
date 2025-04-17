@@ -59,16 +59,39 @@ class UsersController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id); // You forgot this line
+    
+        // Validate the data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:8', // Removed "confirmed"
+            'role' => 'required|in:admin,importateur',
+        ]);
+    
+        // Update fields
+        $user->name = $request->name;
+        $user->email = $request->email;
+    
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
+    
+        $user->role = $request->role;
+        $user->save();
+    
+        return redirect()->route('users.index')->with('success', 'Utilisateur mis à jour avec succès!');
     }
+    
 
     /**
      * Remove the specified resource from storage.

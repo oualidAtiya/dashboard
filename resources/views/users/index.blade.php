@@ -4,12 +4,14 @@
     <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold text-indigo-400">Gestion des Utilisateurs</h1>
-            <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition duration-200 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                Ajouter un Utilisateur
-            </button>
+            <a href="{{route('users.create')}}">
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition duration-200 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Ajouter un Utilisateur
+                </button>
+            </a>
         </div>
 
         <!-- Filters and Search -->
@@ -106,12 +108,14 @@
                                 </td> --}}
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex justify-end space-x-2">
-                                        <button class="text-indigo-400 hover:text-indigo-300 transition">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                            </svg>
-                                        </button>
-                                        <form action="{{route('users.destroy' ,$user->id )}}" method="POST" onsubmit="return confirm('Confirmer la suppression ?');" class="inline">
+                                        <a href="{{route('users.edit' , $user->id)}}">
+                                            <button class="text-indigo-400 hover:text-indigo-300 transition">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                        <form action="{{route('users.destroy', $user->id )}}" method="POST" onsubmit="return confirm('Confirmer la suppression ?');" class="inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="text-red-400 hover:text-red-300 transition">

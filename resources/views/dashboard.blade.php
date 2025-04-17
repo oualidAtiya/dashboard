@@ -18,17 +18,19 @@
 </div>
 
 <!-- Total Importers -->
-<div class="bg-gray-800 rounded-lg shadow p-4">
-    <div class="flex items-center">
-    <div class="p-3 rounded-full bg-green-900 text-green-300">
-        <i class="fas fa-building"></i>
+{{-- @if(Auth::user()->role=== 'admin') --}}
+    <div class="bg-gray-800 rounded-lg shadow p-4">
+        <div class="flex items-center">
+        <div class="p-3 rounded-full bg-green-900 text-green-300">
+            <i class="fas fa-building"></i>
+        </div>
+        <div class="ml-4">
+            <h2 class="font-semibold text-gray-200">Total Importateurs</h2>
+            <p class="text-2xl font-bold text-white"> {{$importersNumber}} </p>
+        </div>
+        </div>
     </div>
-    <div class="ml-4">
-        <h2 class="font-semibold text-gray-200">Total Importateurs</h2>
-        <p class="text-2xl font-bold text-white"> {{$importersNumber}} </p>
-    </div>
-    </div>
-</div>
+{{-- @endif --}}
 
 <!-- Total Scales -->
 <div class="bg-gray-800 rounded-lg shadow p-4">

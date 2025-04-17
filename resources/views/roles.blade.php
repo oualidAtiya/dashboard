@@ -15,7 +15,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Importateur Card -->
-            <a href="/login/importateur" class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-indigo-500 transition duration-300 transform hover:-translate-y-1 cursor-pointer">
+            <a href="login?role=importateur" class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-indigo-500 transition duration-300 transform hover:-translate-y-1 cursor-pointer">
                 <div class="bg-gray-700 p-5 border-b border-gray-600">
                     <h2 class="text-2xl font-bold text-indigo-300 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -44,7 +44,7 @@
             </a>
 
             <!-- Admin Card -->
-            <a href="/login/admin" class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-indigo-500 transition duration-300 transform hover:-translate-y-1 cursor-pointer">
+            <a href="/login?role=admin" class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-indigo-500 transition duration-300 transform hover:-translate-y-1 cursor-pointer">
                 <div class="bg-gray-700 p-5 border-b border-gray-600">
                     <h2 class="text-2xl font-bold text-indigo-300 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

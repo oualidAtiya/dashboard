@@ -51,7 +51,7 @@
             </div>
             <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
                 <i class="fas fa-user-shield mr-3"></i>
-                <span>Gestion des Utilisateurs</span>
+                <a href="{{route('users.index')}}">Gestion des Utilisateurs</a>
             </div>
             <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
                 <i class="fas fa-file-export mr-3"></i>
@@ -80,22 +80,14 @@
         <!-- Header -->
         <header class="bg-gray-800 shadow-sm z-10">
             <div class="flex items-center justify-end h-16 px-6">
-            {{-- <div class="flex items-center">
-                <button class="text-gray-300 focus:outline-none md:hidden">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="relative w-64 ml-4 md:ml-0">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                        <i class="fas fa-search text-gray-500"></i>
-                    </span>
-                    <input class="block w-full pl-10 pr-3 py-2 rounded-md text-sm bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-blue-500" placeholder="Rechercher...">
-                </div>
-            </div> --}}
             <div class="flex items-center">
                 <div class="relative">
-                <button class="flex items-center px-3 py-1.5 rounded-md bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors focus:outline-none focus:ring-1 focus:ring-gray-600">
-                    <span>{{ Auth::user()->name }} 👋</span>
-                </button>
+                    <a href="{{route('profile.edit')}}">
+                        <button class="flex items-center px-3 py-1.5 rounded-md bg-gray-800 text-gray-300 hover:bg-gray-700  transition-colors focus:outline-none focus:ring-1 focus:ring-gray-600">
+                            <span>{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}{{ substr(Auth::user()->name, 1,99) }} </span>
+                            <div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold ms-[10px] ">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</div>
+                        </button>
+                    </a>
                 </div>
             </div>
         </header>

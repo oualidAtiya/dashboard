@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
 use App\Models\Bascule;
 use App\Models\Client;
 use App\Models\Importateur;
 use App\Models\RevisionMetrologique;
-use Illuminate\Http\Request;
-
-class dashController extends Controller
+class AdminController extends Controller
 {
     public function index(){
         $importersNumber = Importateur::count();

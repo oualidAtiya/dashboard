@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasculeContoller;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\dashController;
 use App\Http\Controllers\ExportController;
@@ -26,16 +27,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/clients/{id}/edit', [ClientController::class, 'edit'])->name('clients.edit');
     Route::put('/clients/{id}', [ClientController::class, 'update'])->name('clients.update');
 
+    // Bascules
+    Route::get('/bascules' , [BasculeContoller::class , "index"])->name('bascules.index');
+    Route::get('/bascules/create',[BasculeContoller::class , 'create'])->name('bascules.create');
+    Route::post('/bascules/create',[BasculeContoller::class , 'store'])->name('bascules.store');
+    Route::delete('bascules/{id}', [BasculeContoller::class, 'destroy'])->name('bascules.destroy');
+    Route::get('/bascules/{id}/edit', [BasculeContoller::class, 'edit'])->name('bascules.edit');
+    Route::put('/bascules/{id}', [BasculeContoller::class, 'update'])->name('bascules.update');
+
+    // 
 
 
 
-    
+
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/export',[ExportController::class , 'index']);
+    Route::get('/export',[ExportController::class , 'index'])->name('export.index');
 });
 
 require __DIR__.'/auth.php';

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->text('address');
+            $table->foreignId('importateur_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }

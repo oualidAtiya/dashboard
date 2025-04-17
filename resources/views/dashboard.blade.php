@@ -57,6 +57,31 @@
 </div>
 </div>
 
+<div class="mt-8 dark:bg-gray-800 bg-white rounded-lg shadow overflow-hidden mb-[30px]">
+    <div class="px-6 py-4 border-b dark:border-gray-700 border-gray-200">
+        <h3 class="text-lg font-medium dark:text-white text-gray-800">Actions Rapides</h3>
+    </div>
+    <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <a href="{{route('clients.create')}}" class="flex items-center justify-center py-3 px-4 rounded-lg dark:bg-blue-900 bg-blue-100 dark:text-blue-300 text-blue-600 hover:bg-blue-200 dark:hover:bg-blue-800">
+                <i class="fas fa-user-plus mr-2"></i>
+                <span>Ajouter un Client</span>
+            </a>
+            <a href="{{route('bascules.create')}}" class="flex items-center justify-center py-3 px-4 rounded-lg dark:bg-green-900 bg-green-100 dark:text-green-300 text-green-600 hover:bg-green-200 dark:hover:bg-green-800">
+                <i class="fas fa-balance-scale-right mr-2"></i>
+                <span>Ajouter une Bascule</span>
+            </a>
+            <a href="#" class="flex items-center justify-center py-3 px-4 rounded-lg dark:bg-purple-900 bg-purple-100 dark:text-purple-300 text-purple-600 hover:bg-purple-200 dark:hover:bg-purple-800">
+                <i class="fas fa-clipboard-list mr-2"></i>
+                <span>Manage Revisions</span>
+            </a>
+            <a href="{{route('export.index')}}" class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded flex items-center justify-center">
+                <i class="fas fa-file-export mr-2"></i>
+                <span>Exporter les Rapports</span>
+            </a>
+        </div>
+    </div>
+</div>
 
 
 <!-- Recent Revisions Table -->
@@ -248,29 +273,5 @@
             </div>
         </div>
     </div> --}}
-    <div class="mt-8 dark:bg-gray-800 bg-white rounded-lg shadow overflow-hidden">
-        <div class="px-6 py-4 border-b dark:border-gray-700 border-gray-200">
-            <h3 class="text-lg font-medium dark:text-white text-gray-800">Actions Rapides</h3>
-        </div>
-        <div class="p-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <a href="#" class="flex items-center justify-center py-3 px-4 rounded-lg dark:bg-blue-900 bg-blue-100 dark:text-blue-300 text-blue-600 hover:bg-blue-200 dark:hover:bg-blue-800">
-                    <i class="fas fa-user-plus mr-2"></i>
-                    <span>Add New Client</span>
-                </a>
-                <a href="#" class="flex items-center justify-center py-3 px-4 rounded-lg dark:bg-green-900 bg-green-100 dark:text-green-300 text-green-600 hover:bg-green-200 dark:hover:bg-green-800">
-                    <i class="fas fa-balance-scale-right mr-2"></i>
-                    <span>Add New Scale</span>
-                </a>
-                <a href="#" class="flex items-center justify-center py-3 px-4 rounded-lg dark:bg-purple-900 bg-purple-100 dark:text-purple-300 text-purple-600 hover:bg-purple-200 dark:hover:bg-purple-800">
-                    <i class="fas fa-clipboard-list mr-2"></i>
-                    <span>Manage Revisions</span>
-                </a>
-                <a href="#" class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded flex items-center justify-center">
-                    <i class="fas fa-file-export mr-2"></i>
-                    <span>Exporter les Rapports</span>
-                </a>
-            </div>
-        </div>
-    </div>
+
 @endsection

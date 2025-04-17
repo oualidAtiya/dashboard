@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('serial_number')->unique();
             $table->text('characteristics');
             $table->date('acquisition_date');
-            $table->foreignId('client_id')->constrained()->onDelete('cascade');
-            $table->foreignId('importateur_id')->constrained()->onDelete('cascade');
+            $table->foreignId('client_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('importateur_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }

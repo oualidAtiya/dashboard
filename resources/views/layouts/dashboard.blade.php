@@ -29,16 +29,17 @@
             </div>
             <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
                 <i class="fas fa-users mr-3"></i>
-                <span>Gestion des Clients</span>
+                <a href="{{route('clients.index')}}">Gestion des Clients</a>
+
             </div>
             <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
                 <i class="fas fa-building mr-3"></i>
                 {{-- <span></span> --}}
-                <a href="/importers">Gestion des Importateurs</a>
+                <a href="{{route('importers.index')}}">Gestion des Importateurs</a>
             </div>
             <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
                 <i class="fas fa-balance-scale mr-3"></i>
-                <span>Gestion des Balances</span>
+                <a href="{{route('bascules.index')}}">Gestion des Balances</a>
             </div>
             <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
                 <i class="fas fa-clipboard-check mr-3"></i>
@@ -78,8 +79,8 @@
     <div class="flex flex-col flex-1 overflow-hidden">
         <!-- Header -->
         <header class="bg-gray-800 shadow-sm z-10">
-            <div class="flex items-center justify-between h-16 px-6">
-            <div class="flex items-center">
+            <div class="flex items-center justify-end h-16 px-6">
+            {{-- <div class="flex items-center">
                 <button class="text-gray-300 focus:outline-none md:hidden">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -89,14 +90,13 @@
                     </span>
                     <input class="block w-full pl-10 pr-3 py-2 rounded-md text-sm bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-blue-500" placeholder="Rechercher...">
                 </div>
-            </div>
+            </div> --}}
             <div class="flex items-center">
                 <div class="relative">
-                    <button class="flex items-center text-gray-300 focus:outline-none">
-                        <span class="ml-2"> Oualid Atiya </span>
-                    </button>
+                <button class="flex items-center px-3 py-1.5 rounded-md bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors focus:outline-none focus:ring-1 focus:ring-gray-600">
+                    <span>{{ Auth::user()->name }} 👋</span>
+                </button>
                 </div>
-            </div>
             </div>
         </header>
 

@@ -8,7 +8,10 @@ use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ImportateurController;
 use App\Http\Controllers\importerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RevisionController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ExportClientController;
+use App\Http\Controllers\PenalityController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -49,9 +52,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
     Route::put('/users/{id}', [UsersController::class, 'update'])->name('users.update');
 
+    //Revisions
+    Route::get('/revisions' , [RevisionController::class , "index"])->name('revisions.index');;
 
 
+    //export
+    Route::get('/export',[ExportController::class , 'index'])->name('export.index');
+    Route::get('/export/clients', [ExportController::class, 'clients'])->name('export.clients');
+    Route::get('/export/importateurs', [ExportController::class, 'importateurs'])->name('export.importateurs');
+    Route::get('/export/bascules', [ExportController::class, 'bascules'])->name('export.bascules');
+    Route::get('/export/revisions', [ExportController::class, 'revisions'])->name('export.revisions');
 
+    //Penalities
+    Route::get('/penalities',[PenalityController::class , 'index'])->name('penalities.index');
 
 
 
@@ -60,7 +73,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/export',[ExportController::class , 'index'])->name('export.index');
 });
 
 require __DIR__.'/auth.php';

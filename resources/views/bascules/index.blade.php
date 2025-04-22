@@ -39,7 +39,7 @@
     <div class="bg-gray-800 rounded-lg shadow p-4">
         <div class="flex items-center">
             <div class="p-3 rounded-full bg-indigo-900 text-indigo-300">
-                <i class="fas fa-clock"></i>
+                <i class="fas fa-users"></i>
             </div>
             <div class="ml-4">
                 <h2 class="font-semibold text-gray-200">Les Clients</h2>

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Modifier la Bascule</title>
-</head>
-<body class="bg-gray-900 text-gray-200 flex items-center justify-center min-h-screen">
+@extends('layouts.forms')
+@section('title' , 'Modifier la Bascule')
+@section('form')
 <main class="w-full max-w-5xl p-6 bg-gray-900">
     <div class="mb-8">
         <h1 class="text-3xl font-bold text-white">Modifier la Bascule</h1>
@@ -70,5 +64,4 @@
         </form>
     </div>
 </main>
-</body>
-</html>
+@endsection

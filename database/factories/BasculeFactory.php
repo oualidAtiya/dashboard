@@ -15,7 +15,7 @@ class BasculeFactory extends Factory
     {
         return [
             'model' => $this->faker->word,
-            'serial_number' => $this->faker->unique()->randomNumber,
+            'serial_number' => $this->faker->unique()->randomNumber(),
             'characteristics' => $this->faker->text,
             'acquisition_date' => $this->faker->date,
             'client_id' => Client::factory(),  // Associates a random client

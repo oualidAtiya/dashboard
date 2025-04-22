@@ -23,4 +23,8 @@ class Client extends Model
     {
         return $this->hasMany(Bascule::class);
     }
+    public function penalties()
+    {
+        return $this->hasMany(Penalty::class);
+    }
 }

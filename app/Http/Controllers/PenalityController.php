@@ -21,19 +21,19 @@ class PenalityController extends Controller
         $clientsCount = Penalty::count();
         $penalities = Penalty::with('client')
         ->paginate(10)
-        ->map(function ($penalty) {
-            $days = now()->diffInDays($penalty->date_issued, false); // allow negative
-                if ($days > 0) {
-                $monthsDelayed = ceil($days / 30); // round up to next month
-                $penalty->calculated_amount = $monthsDelayed * 100;
+        ->through(function ($penalty) {
+            $days = now()->diffInDays($penalty->date_issued, false);
+            $penalty->days_delayed = (int) -$days;
+            if ($days < 0) {
+                $days = +$days;
+                $monthsDelayed = ceil($days / 30);
+                $penalty->calculated_amount = -$monthsDelayed * 100;
             } else {
                 $penalty->calculated_amount = 0;
             }
-    
-            $penalty->days_delayed = $days;
-            $penalty->days_delayed = (int) $penalty->days_delayed; 
             return $penalty;
         });
+    
     
     return view('penalities.index', compact('penalities','penaltyTotal','clientsInDelay','clientsCount'));
     }

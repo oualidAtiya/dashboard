@@ -60,10 +60,9 @@
                 <thead>
                     <tr class="bg-gray-700 text-left">
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Client</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Montant</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Date d'échéance</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Jours de retard</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Montant</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Montant (DH)</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Statut</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Actions</th>
                     </tr>
@@ -72,23 +71,22 @@
                     @foreach ($penalities as $penalty)
                         <tr class="border-t border-gray-700 hover:bg-gray-750">
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="h-9 w-9 rounded-full bg-indigo-600/30 flex items-center justify-center mr-3">
+                                <div class="flex items-center w-full overflow-hidden">
+                                    <div class="h-9 w-9 rounded-full bg-indigo-600/30 flex items-center justify-center shrink-0 mr-3">
                                         <span class="font-medium text-indigo-400">MA</span>
                                     </div>
-                                    <div>
-                                        <div class="text-sm text-gray-200"> {{$penalty->client->contact_last_name}} , {{$penalty->client->contact_first_name}} </div>
+                                    <div class="flex-1 w-[160px] overflow-hidden">
+                                        <div class="text-sm text-gray-200"> {{$penalty->client->contact_last_name}}, {{$penalty->client->contact_first_name}} </div>
                                         <div class="text-sm text-gray-400">{{$penalty->client->email}}</div>
                                         <div class="text-sm text-gray-400">{{$penalty->client->phone}}</div>
                                     </div>
                                 </div>
                             </td>
-                            <td class="p-4">{{$penalty->amount}}</td>
                             <td class="p-4">{{$penalty->date_issued}}</td>
                             <td class="p-4 text-red-500 font-medium">{{$penalty->days_delayed}}</td>
                             <td class="p-4 font-medium">{{$penalty->calculated_amount}}</td>
                             <td class="p-4">
-                                <span class="bg-red-600/20 text-red-400 px-2.5 py-1 rounded-full text-sm font-medium">{{$penalty->status}}</span>
+                                <span class="bg-red-600/20 text-red-400  rounded-full text-sm font-medium">{{$penalty->status}}</span>
                             </td>
                             <td class="p-4">
                                 <div class="flex space-x-2">
@@ -107,62 +105,57 @@
                             </td>
                         </tr>
                     @endforeach
-                    {{-- <tr class="border-t border-gray-700 hover:bg-gray-750">
-                        <td class="p-4">
-                            <div class="flex items-center">
-                                <div class="h-9 w-9 rounded-full bg-green-600/30 flex items-center justify-center mr-3">
-                                    <span class="font-medium text-green-400">BM</span>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Banque Populaire</p>
-                                    <p class="text-sm text-gray-400">ID: BP34567</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="p-4">BAL-2023-098</td>
-                        <td class="p-4">10/04/2025</td>
-                        <td class="p-4 text-red-500 font-medium">5 jours</td>
-                        <td class="p-4 font-medium">750 DH</td>
-                        <td class="p-4">
-                            <span class="bg-green-600/20 text-green-400 px-2.5 py-1 rounded-full text-xs font-medium">Payé</span>
-                        </td>
-                        <td class="p-4">
-                            <div class="flex space-x-2">
-                                <button class="p-1.5 rounded-lg bg-gray-700 hover:bg-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                    </svg>
-                                </button>
-                                <button class="p-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </td>
-                    </tr> --}}
                 </tbody>
             </table>
         </div>
         <div class="p-4 border-t border-gray-700 flex items-center justify-between">
-            <p class="text-sm text-gray-400">Affichage de 1 à 4 sur 24 entrées</p>
+            <p class="text-sm text-gray-400">
+                Affichage de {{ $penalities->firstItem() }} à {{ $penalities->lastItem() }} sur {{ $penalities->total() }} entrées
+            </p>
+        
             <div class="flex space-x-1">
-                <button class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button class="p-2 rounded-lg bg-indigo-600 text-white w-8">1</button>
-                <button class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 w-8">2</button>
-                <button class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 w-8">3</button>
-                <button class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
+                {{-- Previous Page --}}
+                @if ($penalities->onFirstPage())
+                    <button class="p-2 rounded-lg bg-gray-800 text-gray-500 cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                @else
+                    <a href="{{ $penalities->previousPageUrl() }}" class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                @endif
+        
+                {{-- Page Numbers --}}
+                @for ($i = 1; $i <= $penalities->lastPage(); $i++)
+                    @if ($i == $penalities->currentPage())
+                        <span class="p-2 rounded-lg bg-indigo-600 text-white w-8 text-center">{{ $i }}</span>
+                    @else
+                        <a href="{{ $penalities->url($i) }}" class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 w-8 text-center">{{ $i }}</a>
+                    @endif
+                @endfor
+        
+                {{-- Next Page --}}
+                @if ($penalities->hasMorePages())
+                    <a href="{{ $penalities->nextPageUrl() }}" class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                @else
+                    <button class="p-2 rounded-lg bg-gray-800 text-gray-500 cursor-not-allowed" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                @endif
             </div>
         </div>
+        
+        
     </div>
 
     <!-- Suivi des Balances en Retard -->

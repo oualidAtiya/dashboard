@@ -2,14 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\Penalty;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Client;
 
-class ClientSeeder extends Seeder
+class RollbackPenaltiesSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        Client::factory()->count(50)->create();  // This will create 10 importateurs
+        Penalty::truncate();
     }
 }

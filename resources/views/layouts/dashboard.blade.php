@@ -50,11 +50,13 @@
                     <span>Révisions Métrologiques</span>
                     
                 </div>
-            </a>    
-            <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
-                <i class="fas fa-exclamation-triangle mr-3"></i>
-                <span>Pénalités & Suivi</span>
-            </div>
+            </a> 
+            <a href="{{route('penalities.index')}}">
+                <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
+                    <i class="fas fa-exclamation-triangle mr-3"></i>
+                    <span>Pénalités & Suivi</span>
+                </div>
+            </a>   
             <a href="{{route('users.index')}}">
                 <div class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer mb-1">
                     <i class="fas fa-user-shield mr-3"></i>

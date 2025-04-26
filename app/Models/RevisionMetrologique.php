@@ -12,8 +12,8 @@ class RevisionMetrologique extends Model
         'scale_id', 'last_revision_date', 'status', 'verification_report', 'verification_responsible'
     ];
 
-    public function bascule()
+    public function bascules()
     {
-        return $this->belongsTo(Bascule::class);
+        return $this->belongsTo(Bascule::class, 'scale_id');
     }
 }

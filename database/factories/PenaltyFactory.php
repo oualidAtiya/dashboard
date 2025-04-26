@@ -20,7 +20,8 @@ class PenaltyFactory extends Factory
         return [
             'client_id' => Client::inRandomOrder()->first()->id,  // Random client from the clients table
             'amount' => $this->faker->randomFloat(2, 50, 200),  // Random penalty amount between 50 and 200 DH
-            'date_issued' => $this->faker->dateTimeBetween('-30 days', 'now'),  // Random date in the last 30 days
+            'date_issued' => $this->faker->dateTimeBetween('-30 days', 'now'),  
+            'revision_id' => \App\Models\RevisionMetrologique::inRandomOrder()->first()->id,
             'created_at' => now(),
             'updated_at' => now(),
         ];

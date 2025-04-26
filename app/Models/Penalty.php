@@ -9,7 +9,7 @@ class Penalty extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['client_id', 'amount', 'date_issued', 'reason' , 'status'];
+    protected $fillable = ['client_id', 'amount', 'date_issued', 'reason' , 'status' , 'revision_id'];
 
     public function client()
     {

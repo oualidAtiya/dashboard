@@ -61,7 +61,7 @@
                     <tr class="bg-gray-700 text-left">
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Client</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Date d'échéance</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Jours de retard</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Mois de retard</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Montant (DH)</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Statut</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Actions</th>
@@ -83,8 +83,8 @@
                                 </div>
                             </td>
                             <td class="p-4">{{$penalty->date_issued}}</td>
-                            <td class="p-4 text-red-500 font-medium">{{$penalty->days_delayed}}</td>
-                            <td class="p-4 font-medium">{{$penalty->calculated_amount}}</td>
+                            <td class="p-4 text-red-500 font-medium">{{$penalty->overdue_months}}</td>
+                            <td class="p-4 font-medium">{{$penalty->amount}}</td>
                             <td class="p-4">
                                 <span class="bg-red-600/20 text-red-400  rounded-full text-sm font-medium">{{$penalty->status}}</span>
                             </td>

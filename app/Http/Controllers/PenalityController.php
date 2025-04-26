@@ -16,23 +16,10 @@ class PenalityController extends Controller
         // Get all penalties and include client details
         $penaltyTotal = Penalty::sum('amount');
         $clientsInDelay = Client::whereHas('penalties', function ($query) {
-            $query->where('status', 'Non Payé');  // You can also filter by 'Unpaid' status
+            $query->where('status', 'en attente');
         })->count();
         $clientsCount = Penalty::count();
-        $penalities = Penalty::with('client')
-        ->paginate(10)
-        ->through(function ($penalty) {
-            $days = now()->diffInDays($penalty->date_issued, false);
-            $penalty->days_delayed = (int) -$days;
-            if ($days < 0) {
-                $days = +$days;
-                $monthsDelayed = ceil($days / 30);
-                $penalty->calculated_amount = -$monthsDelayed * 100;
-            } else {
-                $penalty->calculated_amount = 0;
-            }
-            return $penalty;
-        });
+        $penalities = Penalty::with('client')->paginate(10);
     
     
     return view('penalities.index', compact('penalities','penaltyTotal','clientsInDelay','clientsCount'));

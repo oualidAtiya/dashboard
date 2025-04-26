@@ -29,13 +29,14 @@ class GeneratePenalties extends Command
     public function handle()
     {
         $revisions = RevisionMetrologique::with('bascules.client')
+            ->where('status' ,'!=' , 'complete')
             ->whereDate('last_revision_date', '<=', now()->subYear())
             ->get();
     
         foreach ($revisions as $revision) {
-            // if (!$revision->bascules || !$revision->bascules->client_id) {
-            //     continue;
-            // }
+            if (!$revision->bascules || !$revision->bascules->client_id) {
+                continue;
+            }
     
             $dateEcheance = Carbon::parse($revision->last_revision_date)->addYear();
     
@@ -51,6 +52,7 @@ class GeneratePenalties extends Command
                         'client_id' => $revision->bascules->client_id,
                         'amount' => $penaltyAmount, // Updated penalty amount
                         'date_issued' => now(),
+                        'overdue_months' => $overdueMonths , 
                         'status' => 'en attente',
                         'revision_id' => $revision->id,
                     ]);
